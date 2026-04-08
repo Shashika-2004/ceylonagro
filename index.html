@@ -30,78 +30,53 @@
         padding: 35px 10%; background: #fff; border-bottom: 1px solid var(--border-color);
         position: sticky; top: 0; z-index: 1000;
     }
+  <style>
+    /* Navigation - ලෝගෝ එක ලොකු කර Bold ලුක් එකක් ලබා දීම */
     .logo { 
-        font-weight: 500; 
-        font-size: 19px; 
-        letter-spacing: 5px; /* අකුරු අතර පරතරය ආයෙත් වැඩි කළා */
+        font-weight: 800; /* ඉතාමත් තද (Extra Bold) පෙනුම */
+        font-size: 26px;  /* ප්‍රමාණය ලොකු කළා */
+        letter-spacing: 1px; /* අකුරු අතර පරතරය අඩු කළා Bold ගතිය වැඩි වෙන්න */
         text-transform: uppercase; 
         color: var(--accent-green); 
+        font-family: 'Inter', sans-serif;
     }
+
+    /* Menu අකුරුත් ටිකක් පැහැදිලි කළා */
     .nav-links a { 
-        text-decoration: none; 
-        color: var(--text-color); 
-        margin-left: 40px; 
-        font-size: 11px; 
-        font-weight: 500; 
-        letter-spacing: 2px; 
-        text-transform: uppercase;
-        transition: 0.3s;
-    }
-
-    /* Hero Section - ප්‍රධාන ආකර්ෂණය */
-    .hero {
-        height: 80vh;
-        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/family-garden-planting-vegetation-together.jpg');
-        background-size: cover; background-position: center;
-        display: flex; flex-direction: column; justify-content: center; align-items: center;
-        color: white; text-align: center;
-    }
-    .hero h1 { 
-        font-size: 3.5rem; 
-        font-weight: 300; /* අකුරු සිහින් කළා */
-        letter-spacing: 12px; /* අර තිබුණු සුපිරි පරතරය */
-        text-transform: uppercase;
-        margin-bottom: 20px;
-    }
-    .hero p { 
-        font-size: 10px; 
-        letter-spacing: 6px; 
-        text-transform: uppercase; 
-        opacity: 0.9;
-    }
-
-    /* Product Section */
-    .section { padding: 100px 10%; text-align: center; }
-    .section h2 { 
-        font-size: 20px; 
-        font-weight: 400; 
-        letter-spacing: 7px; 
-        text-transform: uppercase; 
-        margin-bottom: 60px; 
-    }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
-    
-    .product-card { text-align: left; }
-    .product-card img { 
-        width: 100%; height: 420px; object-fit: cover; 
-        margin-bottom: 20px;
-        transition: 0.5s ease;
-    }
-    .product-card img:hover { transform: translateY(-5px); } /* පොඩි lift එකක් */
-
-    .product-card h3 { 
-        font-size: 13px; 
         font-weight: 600; 
-        letter-spacing: 2px; 
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-    .product-card p { 
         font-size: 13px; 
-        color: var(--muted-text); 
-        font-weight: 300;
+        letter-spacing: 0.5px;
+        color: #1a1a1a;
     }
+
+    /* Hero Heading - මේකත් හොඳට පේන්න Bold කළා */
+    .hero h1 { 
+        font-size: 4rem; 
+        font-weight: 800; /* Extra Bold */
+        letter-spacing: -1px; /* අකුරු එකිනෙකට ලං කළා (Premium Bold Style) */
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        line-height: 1.1;
+    }
+
+    /* Product Titles - නිෂ්පාදනවල නම් තදින් පෙන්වීම */
+    .product-card h3 { 
+        font-size: 18px; 
+        font-weight: 700; /* Bold */
+        letter-spacing: 0px;
+        text-transform: none;
+        margin-top: 10px;
+        color: #000;
+    }
+
+    /* විස්තරය (Description) සඳහා අකුරු */
+    .product-card p { 
+        font-size: 14px; 
+        font-weight: 400;
+        color: #444; /* ටිකක් තද කළු පාට */
+        line-height: 1.6;
+    }
+</style>
 
     footer { 
         padding: 80px 10%; 
