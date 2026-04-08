@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CeylonAgro | Pure & Natural</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --muted-text: #666666;
+            --accent-green: #2d5a27;
+            --border-color: #eeeeee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 25px 10%; background: #fff; border-bottom: 1px solid var(--border-color);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-weight: 600; font-size: 22px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); }
+        .nav-links a { text-decoration: none; color: var(--text-color); margin-left: 40px; font-size: 12px; font-weight: 600; transition: 0.3s; letter-spacing: 1px; }
+
+        /* Hero Section - ප්‍රධාන පින්තූරය */
+        .hero {
+            height: 75vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/family-garden-planting-vegetation-together.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 300; letter-spacing: 6px; }
+
+        .section { padding: 90px 10%; text-align: center; }
+        .section h2 { font-size: 24px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 50px; }
+
+        /* Products Grid - පින්තූර 3 මාරුවෙන් මාරුවට */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .product-card { text-align: left; }
+        .product-card img { 
+            width: 100%; height: 350px; object-fit: cover; 
+            margin-bottom: 20px; border-radius: 2px;
+        }
+        .product-card h3 { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        footer { padding: 60px 10%; border-top: 1px solid var(--border-color); text-align: center; font-size: 11px; color: #aaa; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">CEYLONAGRO</div>
+    <div class="nav-links">
+        <a href="#about">ABOUT</a>
+        <a href="#products">COLLECTION</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>NATURAL HARVEST</h1>
+    <p>Premium Sri Lankan Plantation & Products</p>
+</section>
+
+<section id="products" class="section">
+    <h2>The Collection</h2>
+    <div class="grid">
+        
+        <div class="product-card">
+            <img src="images/family-garden-planting-vegetation-together.jpg" alt="Family Gardening">
+            <h3>Sustainable Farming</h3>
+            <p>Our plantation in Gampola follows strict organic and vertical farming standards.</p>
+        </div>
+        
+        <div class="product-card">
+            <img src="images/woman-admiring-potted-plant.jpg" alt="Our Plants">
+            <h3>Premium Plants</h3>
+            <p>We provide healthy, hand-nurtured plants for your home and garden.</p>
+        </div>
+
+        <div class="product-card">
+            <img src="images/planting-seedling.jpg" alt="Seedlings">
+            <h3>Fresh Seedlings</h3>
+            <p>Quality starting points for a healthy, green future.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer id="contact">
+    <p>CEYLONAGRO | GAMPOLA, SRI LANKA</p>
+    <p style="margin-top: 40px;">© 2026 CEYLONAGRO. ALL RIGHTS RESERVED.</p>
+</footer>
+
+</body>
+</html>
