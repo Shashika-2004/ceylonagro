@@ -5,50 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CeylonAgro | Pure & Natural</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --muted-text: #666666;
-            --accent-green: #2d5a27;
-            --border-color: #eeeeee;
-        }
+ <style>
+    :root {
+        --bg-color: #ffffff;
+        --text-color: #1a1a1a;
+        --muted-text: #777777; /* ටිකක් ලා පැහැති කළු */
+        --accent-green: #2d5a27;
+        --border-color: #f0f0f0;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+        font-family: 'Montserrat', sans-serif; 
+        background: var(--bg-color); 
+        color: var(--text-color); 
+        line-height: 1.8; /* පේළි අතර ඉඩ වැඩි කළා කියවන්න ලේසි වෙන්න */
+        -webkit-font-smoothing: antialiased; /* Fonts වඩාත් සිනිඳු පෙනුමක් ලබා දීමට */
+    }
 
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 10%; background: #fff; border-bottom: 1px solid var(--border-color);
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .logo { font-weight: 600; font-size: 22px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); }
-        .nav-links a { text-decoration: none; color: var(--text-color); margin-left: 40px; font-size: 12px; font-weight: 600; transition: 0.3s; letter-spacing: 1px; }
+    /* Navigation */
+    nav {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 35px 10%; background: #fff; border-bottom: 1px solid var(--border-color);
+        position: sticky; top: 0; z-index: 1000;
+    }
+    .logo { 
+        font-weight: 600; 
+        font-size: 20px; 
+        letter-spacing: 4px; /* ලෝගෝ එකේ අකුරු අතර පරතරය වැඩි කළා */
+        text-transform: uppercase; 
+        color: var(--accent-green); 
+    }
+    .nav-links a { 
+        text-decoration: none; 
+        color: var(--text-color); 
+        margin-left: 40px; 
+        font-size: 11px; 
+        font-weight: 600; 
+        letter-spacing: 2px; /* මෙනු එකේ අකුරු අතර පරතරය */
+        transition: 0.3s;
+        text-transform: uppercase;
+    }
 
-        /* Hero Section - ප්‍රධාන පින්තූරය */
-        .hero {
-            height: 75vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/family-garden-planting-vegetation-together.jpg');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; padding: 0 20px;
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 300; letter-spacing: 6px; }
+    /* Hero Section */
+    .hero {
+        height: 80vh;
+        background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('images/family-garden-planting-vegetation-together.jpg');
+        background-size: cover; background-position: center;
+        display: flex; flex-direction: column; justify-content: center; align-items: center;
+        color: white; text-align: center;
+    }
+    .hero h1 { 
+        font-size: 3.8rem; 
+        margin-bottom: 15px; 
+        font-weight: 300; 
+        letter-spacing: 12px; /* ලොකු අකුරු අතර පරතරය ගොඩක් වැඩි කළා Premium ලුක් එකට */
+        text-transform: uppercase;
+    }
+    .hero p { 
+        font-size: 0.9rem; 
+        letter-spacing: 5px; 
+        text-transform: uppercase; 
+        font-weight: 400;
+        opacity: 0.9;
+    }
 
-        .section { padding: 90px 10%; text-align: center; }
-        .section h2 { font-size: 24px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 50px; }
+    /* Sections */
+    .section { padding: 120px 10%; text-align: center; }
+    .section h2 { 
+        font-size: 22px; 
+        font-weight: 400; 
+        letter-spacing: 6px; 
+        text-transform: uppercase; 
+        margin-bottom: 60px; 
+        position: relative;
+    }
+    /* මාතෘකාව යටින් පොඩි ඉරක් ඇඳීම */
+    .section h2::after {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--accent-green);
+        margin: 15px auto;
+    }
 
-        /* Products Grid - පින්තූර 3 මාරුවෙන් මාරුවට */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .product-card { text-align: left; }
-        .product-card img { 
-            width: 100%; height: 350px; object-fit: cover; 
-            margin-bottom: 20px; border-radius: 2px;
-        }
-        .product-card h3 { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    /* Products Grid */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; }
+    .product-card { text-align: left; }
+    .product-card img { 
+        width: 100%; height: 400px; object-fit: cover; 
+        margin-bottom: 25px;
+        filter: grayscale(10%); /* පොඩි සිනමා පෙනුමක් (Cinematic look) */
+        transition: 0.6s ease;
+    }
+    .product-card img:hover { filter: grayscale(0%); transform: scale(1.02); }
+    
+    .product-card h3 { 
+        font-size: 14px; 
+        font-weight: 600; 
+        margin-bottom: 12px; 
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+    }
+    .product-card p { 
+        font-size: 13px; 
+        color: var(--muted-text); 
+        font-weight: 300;
+        line-height: 1.8;
+    }
 
-        footer { padding: 60px 10%; border-top: 1px solid var(--border-color); text-align: center; font-size: 11px; color: #aaa; }
-    </style>
+    /* About Section */
+    .about-content { 
+        max-width: 700px; 
+        margin: auto; 
+        font-size: 15px; 
+        color: #555; 
+        font-weight: 300;
+        letter-spacing: 0.5px;
+    }
+
+    /* Footer */
+    footer { 
+        padding: 80px 10%; 
+        border-top: 1px solid var(--border-color); 
+        text-align: center; 
+        font-size: 10px; 
+        color: #bbb; 
+        letter-spacing: 2px; 
+        text-transform: uppercase;
+    }
+</style>
 </head>
 <body>
 
