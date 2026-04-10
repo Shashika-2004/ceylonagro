@@ -30,13 +30,11 @@
         padding: 30px 10%; background: #fff; border-bottom: 1px solid var(--border-color);
         position: sticky; top: 0; z-index: 1000;
     }
-    .logo { 
-        font-weight: 800; /* Page Name එක විතරක් හොඳට Bold කළා */
-        font-size: 24px; 
-        letter-spacing: 2px; 
-        text-transform: uppercase; 
-        color: var(--accent-green); 
-    }
+.logo img {
+    height: 70px; /* ඔයාට කැමති උසක් මෙතනට දෙන්න */
+    width: auto;
+    display: block;
+}
     .nav-links a { 
         text-decoration: none; 
         color: var(--text-color); 
@@ -115,12 +113,11 @@
 <body>
 
 <nav>
-    <div class="logo">CEYLONAGRO</div>
-    <div class="nav-links">
-        <a href="#about">ABOUT</a>
-        <a href="#products">COLLECTION</a>
-        <a href="#contact">CONTACT</a>
-    </div>
+<div class="logo">
+    <a href="index.html">
+        <img src="images/Logoweb.png" alt="CeylonAgro Logo">
+    </a>
+</div>
 </nav>
 
 <section class="hero">
