@@ -233,55 +233,40 @@
         this.reset();
     }
 
-    // 2. Feedback Slider Logic
-    function renderFeedbacks() {
-        let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews')) || [
-            { name: "Kamal Perera", rating: "5", comment: "ඉතාමත් හොඳ සේවාවක්! පැළ නිරෝගීව ලැබුණා." },
-            { name: "Sarah M.", rating: "5", comment: "Excellent plants and fast delivery. Highly recommended." },
-            { name: "Nimal Silva", rating: "5", comment: "කුරුණෑගල තියෙන හොඳම පැළ නර්සරි එකක්." }
-        ];
+  function renderFeedbacks() {
+        // LocalStorage එකේ මුකුත් නැත්නම් Default දත්ත ටිකක් පෙන්නන්න
+        let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews'));
+        
+        if (!reviews || reviews.length === 0) {
+            reviews = [
+                { name: "Kamal Perera", rating: "5", comment: "ඉතාමත් හොඳ සේවාවක්! පැළ නිරෝගීව ලැබුණා." },
+                { name: "Sarah M.", rating: "5", comment: "Excellent plants and fast delivery. Highly recommended." },
+                { name: "Nimal Silva", rating: "5", comment: "කුරුණෑගල තියෙන හොඳම පැළ නර්සරි එකක්." }
+            ];
+        }
 
-        fbSlider.innerHTML = '';
+        fbSlider.innerHTML = ''; // කලින් තියෙන ඒවා Clear කරන්න
+        
         reviews.forEach(rev => {
             const stars = "★".repeat(parseInt(rev.rating)) + "☆".repeat(5 - parseInt(rev.rating));
-            fbSlider.innerHTML += `
-                <div class="feedback-slide">
-                    <div class="feedback-card">
-                        <div style="color:#ffcc00; font-size:1.2rem; margin-bottom:10px;">${stars}</div>
-                        <p style="font-size: 14px; font-style: italic; color: #555; margin-bottom: 10px;">"${rev.comment}"</p>
-                        <div style="font-weight: bold; font-size: 12px; color: #1a4332;">- ${rev.name}</div>
-                    </div>
-                </div>`;
+            
+            // Slide එකක් ඇතුළේ ලස්සනට Card එක දාන්න
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'feedback-slide';
+            slideDiv.innerHTML = `
+                <div class="feedback-card">
+                    <div style="color:#ffcc00; font-size:1.2rem; margin-bottom:10px;">${stars}</div>
+                    <p style="font-size: 14px; font-style: italic; color: #555; margin-bottom: 10px;">"${rev.comment}"</p>
+                    <div style="font-weight: bold; font-size: 12px; color: #1a4332;">- ${rev.name}</div>
+                </div>
+            `;
+            fbSlider.appendChild(slideDiv);
         });
+        
+        // Slider එක මුල සිට පටන් ගන්න
+        currentIndex = 0;
+        fbSlider.style.transform = `translateX(0%)`;
     }
-
-    function startAutoSlide() {
-        setInterval(() => {
-            const slides = document.querySelectorAll('.feedback-slide');
-            if (slides.length > 0) {
-                currentIndex = (currentIndex + 1) % slides.length;
-                fbSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-        }, 4000);
-    }
-
-    document.getElementById('customerFeedbackForm').onsubmit = function(e) {
-        e.preventDefault();
-        let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews')) || [];
-        reviews.unshift({
-            name: document.getElementById('fbName').value,
-            rating: document.getElementById('fbRating').value,
-            comment: document.getElementById('fbComment').value
-        });
-        localStorage.setItem('ceylonAgroReviews', JSON.stringify(reviews));
-        this.reset();
-        renderFeedbacks();
-        alert("ඔබේ අදහස සාර්ථකව එක් කරන ලදී!");
-    };
-
-    // Initial Load
-    renderFeedbacks();
-    startAutoSlide();
 </script>
 
 </body>
