@@ -22,6 +22,7 @@
             color: var(--text-color); 
             line-height: 1.8;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* Navigation */
@@ -38,51 +39,62 @@
         .nav-links { display: flex; list-style: none; gap: 20px; }
         .nav-links a { text-decoration: none; color: var(--text-color); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Floating Inquiry Button (Mobile & PC දෙකටම) */
+        /* Floating Button */
         .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.3s;
+            position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 9999; display: flex; align-items: center; gap: 10px; transition: 0.3s;
         }
         .floating-btn:hover { transform: scale(1.05); }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/family-garden-planting-vegetation-together.jpg');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;
-            padding: 20px;
+            background-size: cover; background-position: center; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; color: white; text-align: center; padding: 20px;
         }
         .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; }
-        .hero p { font-size: 12px; letter-spacing: 3px; opacity: 0.9; }
 
-        /* Stats Bar */
+        /* Stats */
         .stats-container { display: flex; justify-content: center; gap: 20px; padding: 0 5%; margin-top: -50px; position: relative; z-index: 10; flex-wrap: wrap; }
         .stat-box { background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; width: 180px; border-bottom: 4px solid var(--accent-green); }
         .stat-box h3 { font-size: 1.8rem; color: var(--accent-green); font-family: 'Arial Black', sans-serif; }
-        .stat-box p { font-size: 10px; text-transform: uppercase; color: var(--muted-text); font-weight: 700; }
 
-        /* Grid */
+        /* Sections */
         .section { padding: 80px 5% 40px; text-align: center; }
         .section h2 { font-size: 16px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 40px; color: var(--accent-green); }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .product-card { text-align: left; background: #fff; border-radius: 10px; overflow: hidden; }
+        .product-card { text-align: left; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .product-card img { width: 100%; height: 300px; object-fit: cover; }
         .product-card-info { padding: 20px; }
-        .product-card h3 { font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
-        .product-card p { font-size: 13px; color: var(--muted-text); }
+
+        /* Feedback Slider Styling */
+        .feedback-section { padding: 80px 5%; background: #fdfdfd; text-align: center; overflow: hidden; }
+        .feedback-container { max-width: 800px; margin: 0 auto; position: relative; padding: 20px 0; }
+        
+        .feedback-slider { 
+            display: flex; transition: transform 0.5s ease-in-out; 
+            width: 100%; 
+        }
+        
+        .feedback-slide { 
+            min-width: 100%; padding: 20px; box-sizing: border-box; 
+        }
+
+        .feedback-card { 
+            background: #fff; padding: 35px; border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; 
+            border-bottom: 4px solid #25D366; margin: 10px;
+        }
+
+        .feedback-form-container { 
+            max-width: 500px; margin: 40px auto; padding: 25px; 
+            background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; text-align: left;
+        }
+        .feedback-form-container input, .feedback-form-container select, .feedback-form-container textarea {
+            width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;
+        }
+        .btn-post { width: 100%; padding: 15px; background: var(--accent-green); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
         /* Modal */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
@@ -90,31 +102,11 @@
         .close-btn { position: absolute; right: 20px; top: 15px; font-size: 25px; cursor: pointer; }
         .input-group { margin-bottom: 15px; text-align: left; }
         .input-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 12px; }
-        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-send { width: 100%; padding: 15px; background: #25D366; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
 
-       /* Feedback Section Styles */
-        .feedback-section { padding: 80px 5%; background: #fdfdfd; text-align: center; }
-        .feedback-form-container { 
-            max-width: 500px; margin: 0 auto 50px; padding: 25px; 
-            background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; text-align: left;
-        }
-        .feedback-form-container h3 { font-size: 14px; margin-bottom: 15px; text-transform: uppercase; color: var(--accent-green); }
-        .feedback-form-container input, .feedback-form-container select, .feedback-form-container textarea {
-            width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;
-        }
-        .btn-post { 
-            width: 100%; padding: 15px; background: var(--accent-green); color: white; 
-            border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
-        .feedback-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-        .feedback-card { background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid #25D366; }
-        .stars { color: #ffcc00; margin-bottom: 10px; font-size: 1.1rem; }
-        
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .stat-box { width: 45%; }
-            .floating-btn { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 14px; }
         }
     </style>
 </head>
@@ -142,18 +134,9 @@
 </section>
 
 <section class="stats-container">
-    <div class="stat-box">
-        <h3 id="customerCount">500</h3>
-        <p>Inquiries</p>
-    </div>
-    <div class="stat-box">
-        <h3>20+</h3>
-        <p>Products</p>
-    </div>
-    <div class="stat-box">
-        <h3>1000+</h3>
-        <p>Plants</p>
-    </div>
+    <div class="stat-box"><h3 id="customerCount">500</h3><p>Inquiries</p></div>
+    <div class="stat-box"><h3>20+</h3><p>Products</p></div>
+    <div class="stat-box"><h3>1000+</h3><p>Plants</p></div>
 </section>
 
 <section id="plants" class="section">
@@ -161,37 +144,31 @@
     <div class="grid">
         <div class="product-card">
             <img src="images/hamban ouwak.jpeg" alt="Puwak">
-            <div class="product-card-info">
-                <h3>Hamban Puwak</h3>
-                <p>High-quality seedlings for your garden.</p>
-            </div>
+            <div class="product-card-info"><h3>Hamban Puwak</h3><p>High-quality seedlings for your garden.</p></div>
         </div>
         <div class="product-card">
             <img src="images/rata puwak.jpeg" alt="Puwak">
-            <div class="product-card-info">
-                <h3>Rata Puwak</h3>
-                <p>Premium yield plants.</p>
-            </div>
+            <div class="product-card-info"><h3>Rata Puwak</h3><p>Premium yield plants.</p></div>
         </div>
         <div class="product-card">
             <img src="images/Gammiris.jpeg" alt="Pepper">
-            <div class="product-card-info">
-                <h3>Black Pepper</h3>
-                <p>Fast-growing vines.</p>
-            </div>
+            <div class="product-card-info"><h3>Black Pepper</h3><p>Fast-growing vines.</p></div>
         </div>
         <div class="product-card">
             <img src="images/dehi.jpeg" alt="Lime">
-            <div class="product-card-info">
-                <h3>Lime Plants</h3>
-                <p>Healthy lime seedlings.</p>
-            </div>
+            <div class="product-card-info"><h3>Lime Plants</h3><p>Healthy lime seedlings.</p></div>
         </div>
     </div>
 </section>
+
 <section class="feedback-section">
-    <h2>Customer Feedback</h2>
+    <h2>What Customers Say</h2>
     
+    <div class="feedback-container">
+        <div id="feedbackSlider" class="feedback-slider">
+            </div>
+    </div>
+
     <div class="feedback-form-container">
         <h3>Share Your Experience</h3>
         <form id="customerFeedbackForm">
@@ -201,18 +178,17 @@
                 <option value="4">★★★★☆ (4 Stars)</option>
                 <option value="3">★★★☆☆ (3 Stars)</option>
             </select>
-            <textarea id="fbComment" placeholder="ඔබේ අදහස මෙහි ලියන්න (Write your feedback...)" rows="3" required></textarea>
+            <textarea id="fbComment" placeholder="ඔබේ අදහස..." rows="3" required></textarea>
             <button type="submit" class="btn-post">Post Feedback</button>
         </form>
     </div>
+</section>
 
-    <div id="feedbackDisplayGrid" class="feedback-grid">
-        </div>
-</section>
-    </div>
-</section>
 <section id="about" class="section">
     <h2>Our Story</h2>
+    <p style="max-width: 700px; margin: 0 auto; color: var(--muted-text);">At CeylonAgro, we provide high-quality agricultural products and healthy seedlings straight from Wellawa, Kurunegala. We ensure the best growth for your plantations.</p>
+</section>
+
 <div id="inquiryModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" id="closeModal">&times;</span>
@@ -227,92 +203,3 @@
                     <option value="Hamban Puwak">Hamban Puwak</option>
                     <option value="Rata Puwak">Rata Puwak</option>
                     <option value="Black Pepper">Black Pepper</option>
-                    <option value="Lime Plants">Lime Plants</option>
-                </select>
-            </div>
-            <div class="input-group"><label>Message</label><textarea id="userMessage" rows="2"></textarea></div>
-            <button type="submit" class="btn-send">Chat on WhatsApp</button>
-        </form>
-    </div>
-</div>
-
-<footer id="contact" style="padding: 40px; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee;">
-    <p>CEYLONAGRO | WELLAWA, KURUNEGALA, SRI LANKA</p>
-</footer>
-
-<script>
-    const modal = document.getElementById("inquiryModal");
-    const openBtn = document.getElementById("openInquiry");
-    const closeBtn = document.getElementById("closeModal");
-    const countDisplay = document.getElementById("customerCount");
-
-    // Load Count
-    let count = parseInt(localStorage.getItem('inquiryCount')) || 500;
-    countDisplay.innerText = count + "+";
-
-    // Modal Controls
-    openBtn.onclick = (e) => { e.preventDefault(); modal.style.display = "block"; }
-    closeBtn.onclick = () => { modal.style.display = "none"; }
-    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
-
-    // Form Submit
-    document.getElementById("inquiryForm").onsubmit = function(e) {
-        e.preventDefault();
-        const name = document.getElementById("userName").value;
-        const city = document.getElementById("userCity").value;
-        const product = document.getElementById("userProduct").value;
-        const msg = document.getElementById("userMessage").value;
-
-        const myNumber = "94727782588"; // මෙතනට ඔයාගේ නම්බර් එක දාන්න (Ex: 94771234567)
-
-        const text = `*Inquiry from CeylonAgro Website*%0A%0A*Name:* ${name}%0A*City:* ${city}%0A*Product:* ${product}%0A*Message:* ${msg}`;
-        
-        count++;
-        localStorage.setItem('inquiryCount', count);
-        countDisplay.innerText = count + "+";
-
-        window.open(`https://wa.me/${myNumber}?text=${text}`, '_blank');
-        modal.style.display = "none";
-    }
-    const fbForm = document.getElementById('customerFeedbackForm');
-    const fbDisplay = document.getElementById('feedbackDisplayGrid');
-
-    function displayFeedbacks() {
-        // පරණ දත්ත හෝ default දත්ත ලබා ගැනීම
-        let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews')) || [
-            { name: "Kamal Perera", rating: "5", comment: "ගම්පොළින් ගත්ත හොඳම පුවක් පැළ ටික. බොහොම ස්තූතියි!" },
-            { name: "Sarah M.", rating: "5", comment: "Very fast delivery and healthy plants." }
-        ];
-
-        fbDisplay.innerHTML = '';
-        reviews.forEach(rev => {
-            const stars = "★".repeat(parseInt(rev.rating)) + "☆".repeat(5 - parseInt(rev.rating));
-            fbDisplay.innerHTML += `
-                <div class="feedback-card">
-                    <div class="stars">${stars}</div>
-                    <p style="font-size: 14px; font-style: italic; color: #555; margin-bottom: 10px;">"${rev.comment}"</p>
-                    <div style="font-weight: bold; font-size: 12px; color: #1a4332;">- ${rev.name}</div>
-                </div>`;
-        });
-    }
-
-    fbForm.onsubmit = function(e) {
-        e.preventDefault();
-        const name = document.getElementById('fbName').value;
-        const rating = document.getElementById('fbRating').value;
-        const comment = document.getElementById('fbComment').value;
-
-        let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews')) || [];
-        reviews.unshift({ name, rating, comment });
-
-        localStorage.setItem('ceylonAgroReviews', JSON.stringify(reviews));
-        fbForm.reset();
-        displayFeedbacks();
-        alert("ඔබේ අදහස සාර්ථකව පල කරන ලදී!");
-    };
-
-    displayFeedbacks();
-</script>
-
-</body>
-</html>
