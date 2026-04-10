@@ -21,6 +21,7 @@
             background: var(--bg-color); 
             color: var(--text-color); 
             line-height: 1.8;
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -34,42 +35,65 @@
         .logo-img { height: 60px; width: auto; }
         .logo-text { font-size: 1.8rem; font-weight: 800; color: var(--accent-green); letter-spacing: 2px; font-family: 'Arial Black', sans-serif; }
 
-        .btn-inquiry {
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-green); }
+
+        .btn-inquiry-nav {
             text-decoration: none; background: var(--accent-green); color: #fff;
-            padding: 10px 25px; border-radius: 50px; font-weight: 600; font-size: 14px; transition: 0.3s;
+            padding: 10px 25px; border-radius: 50px; font-weight: 600; font-size: 12px; transition: 0.3s;
         }
 
-        /* Hero & Stats */
+        /* Hero Section */
         .hero {
-            height: 50vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/family-garden-planting-vegetation-together.jpg');
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/family-garden-planting-vegetation-together.jpg');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center;
         }
+        .hero h1 { font-size: 3rem; font-weight: 300; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero p { font-size: 12px; letter-spacing: 5px; text-transform: uppercase; opacity: 0.9; }
 
+        /* Stats Boxes */
         .stats-container { display: flex; justify-content: center; gap: 30px; padding: 0 10%; margin-top: -60px; position: relative; z-index: 10; }
-        .stat-box { background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; flex: 1; max-width: 250px; border-bottom: 4px solid var(--accent-green); }
+        .stat-box { background: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; flex: 1; max-width: 250px; border-bottom: 4px solid var(--accent-green); transition: 0.3s; }
+        .stat-box:hover { transform: translateY(-10px); }
         .stat-box h3 { font-size: 2.2rem; color: var(--accent-green); font-family: 'Arial Black', sans-serif; }
         .stat-box p { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted-text); font-weight: 700; }
 
-        /* Modal */
+        /* Sections */
+        .section { padding: 100px 10% 60px; text-align: center; }
+        .section h2 { font-size: 18px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 50px; color: var(--accent-green); }
+
+        /* Grid System */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .product-card { text-align: left; background: #fff; padding: 15px; border-radius: 10px; transition: 0.3s; }
+        .product-card:hover { box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px; border-radius: 8px; }
+        .product-card h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+        .product-card p { font-size: 13px; color: var(--muted-text); }
+
+        /* About Section */
+        #about { background: #fcfcfc; }
+        .about-text { max-width: 800px; margin: 0 auto; color: var(--muted-text); line-height: 2; }
+
+        /* Modal Settings */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
-        .modal-content { background: #fff; margin: 5% auto; padding: 35px; border-radius: 15px; width: 90%; max-width: 450px; position: relative; }
-        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; }
-
-        .input-group { margin-bottom: 15px; }
+        .modal-content { background: #fff; margin: 5% auto; padding: 40px; border-radius: 15px; width: 90%; max-width: 450px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 28px; cursor: pointer; color: #777; }
+        
+        .input-group { margin-bottom: 15px; text-align: left; }
         .input-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 13px; }
-        .input-group input, .input-group select, .input-group textarea { 
-            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 14px;
-        }
+        .input-group input, .input-group select, .input-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
 
-        .btn-send { 
-            width: 100%; padding: 15px; background: #25D366; color: white; border: none; 
-            border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem;
-        }
+        .btn-send { width: 100%; padding: 15px; background: #25D366; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+
+        footer { padding: 60px 10%; border-top: 1px solid var(--border-color); text-align: center; font-size: 10px; color: #999; letter-spacing: 2px; }
 
         @media (max-width: 768px) {
+            .nav-links, .btn-inquiry-nav { display: none; }
             .stats-container { flex-direction: column; align-items: center; margin-top: 20px; }
             .stat-box { width: 100%; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -77,10 +101,16 @@
 
 <nav>
     <a href="index.html" class="logo-link">
-        <img src="images/Logoweb.png" alt="Logo" class="logo-img">
+        <img src="images/Logoweb.png" alt="CeylonAgro Logo" class="logo-img">
         <span class="logo-text">CEYLONAGRO</span>
     </a>
-    <a href="#" class="btn-inquiry" id="openInquiry">Inquire Now</a>
+    <ul class="nav-links">
+        <li><a href="#plants">Plants</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#" class="btn-inquiry-nav" id="openInquiry">Inquire Now</a>
 </nav>
 
 <section class="hero">
@@ -103,49 +133,67 @@
     </div>
 </section>
 
+<section id="plants" class="section">
+    <h2>Our Plant Collection</h2>
+    <div class="grid">
+        <div class="product-card">
+            <img src="images/hamban ouwak.jpeg" alt="Hamban Puwak">
+            <h3>Hamban Puwak (හම්බන් පුවක්)</h3>
+            <p>High-quality Hamban Puwak seedlings for commercial and home gardens.</p>
+        </div>
+        <div class="product-card">
+            <img src="images/rata puwak.jpeg" alt="Rata Puwak">
+            <h3>Rata Puwak (රට පුවක්)</h3>
+            <p>Premium Rata Puwak plants known for high yield and durability.</p>
+        </div>
+        <div class="product-card">
+            <img src="images/Gammiris.jpeg" alt="Black Pepper">
+            <h3>Black Pepper (ගම්මිරිස්)</h3>
+            <p>Fast-growing, disease-resistant black pepper vines for spice cultivation.</p>
+        </div>
+        <div class="product-card">
+            <img src="images/dehi.jpeg" alt="Lime Plants">
+            <h3>Lime Plants (දෙහි පැළ)</h3>
+            <p>Fresh and healthy lime seedlings ready for planting in your garden.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <h2>Our Story</h2>
+    <div class="about-text">
+        <p>Based in Gampola, CeylonAgro is dedicated to providing the finest Sri Lankan agricultural products and premium plant seedlings. We combine traditional wisdom with modern quality standards to ensure our customers receive the best of nature's harvest.</p>
+    </div>
+</section>
+
 <div id="inquiryModal" class="modal">
     <div class="modal-content">
         <span class="close-btn">&times;</span>
-        <h2 style="text-align: center; color: var(--accent-green);">Inquire Now</h2>
-        <p style="text-align: center; margin-bottom: 20px; font-size: 13px; color: #666;">පහත විස්තර පුරවා අපට එවන්න.</p>
-        
+        <h2 style="color: var(--accent-green); margin-bottom: 10px;">Send Inquiry</h2>
         <form id="inquiryForm">
+            <div class="input-group"><label>Name</label><input type="text" id="userName" required></div>
+            <div class="input-group"><label>City</label><input type="text" id="userCity" required></div>
             <div class="input-group">
-                <label>Your Name</label>
-                <input type="text" id="userName" placeholder="ඔබේ නම" required>
-            </div>
-            
-            <div class="input-group">
-                <label>City</label>
-                <input type="text" id="userCity" placeholder="ඔබේ නගරය" required>
-            </div>
-
-            <div class="input-group">
-                <label>Interested Product / Plant</label>
+                <label>Interested In</label>
                 <select id="userProduct" required>
-                    <option value="" disabled selected>තෝරන්න (Select)</option>
-                    <option value="Hamban Puwak">හම්බන් පුවක් (Hamban Puwak)</option>
-                    <option value="Rata Puwak">රට පුවක් (Rata Puwak)</option>
-                    <option value="Black Pepper">ගම්මිරිස් (Black Pepper)</option>
-                    <option value="Lime Plants">දෙහි පැළ (Lime Plants)</option>
-                    <option value="Fruit Sauces">සෝස් වර්ග (Fruit Sauces)</option>
-                    <option value="Other">වෙනත් (Other)</option>
+                    <option value="" disabled selected>Select Product/Plant</option>
+                    <option value="Hamban Puwak">Hamban Puwak</option>
+                    <option value="Rata Puwak">Rata Puwak</option>
+                    <option value="Black Pepper">Black Pepper</option>
+                    <option value="Lime Plants">Lime Plants</option>
+                    <option value="Fruit Sauces">Fruit Sauces</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
-
-            <div class="input-group">
-                <label>Message</label>
-                <textarea id="userMessage" rows="3" placeholder="වැඩිදුර විස්තර මෙහි ලියන්න..."></textarea>
-            </div>
-
+            <div class="input-group"><label>Message</label><textarea id="userMessage" rows="3"></textarea></div>
             <button type="submit" class="btn-send">Send to WhatsApp</button>
         </form>
     </div>
 </div>
 
-<footer style="padding: 60px 10%; text-align: center; font-size: 10px; color: #999; border-top: 1px solid var(--border-color); margin-top: 50px;">
-    <p>CEYLONAGRO | WELLAWA, KURUNEGALA, SRI LANKA</p>
-    <p>© 2026 CEYLONAGRO. ALL RIGHTS RESERVED.</p>
+<footer id="contact">
+    <p>CEYLONAGRO | GAMPOLA, SRI LANKA</p>
+    <p style="margin-top: 20px;">© 2026 CEYLONAGRO. ALL RIGHTS RESERVED.</p>
 </footer>
 
 <script>
@@ -155,7 +203,6 @@
         const closeBtn = document.querySelector(".close-btn");
         const countDisplay = document.getElementById("customerCount");
 
-        // පරණ Count එක Load කිරීම
         let count = parseInt(localStorage.getItem('inquiryCount')) || 500;
         countDisplay.innerText = count + "+";
 
@@ -165,24 +212,19 @@
 
         document.getElementById("inquiryForm").onsubmit = function(e) {
             e.preventDefault();
-
             const name = document.getElementById("userName").value;
             const city = document.getElementById("userCity").value;
             const product = document.getElementById("userProduct").value;
             const msg = document.getElementById("userMessage").value;
 
-            // --- මෙතනට ඔයාගේ WhatsApp අංකය දාන්න (උදා: 94771234567) ---
-            const myNumber = "94727782588"; 
+            const myNumber = "947XXXXXXXX"; // ඔයාගේ WhatsApp අංකය මෙතනට දාන්න
 
-            // WhatsApp මැසේජ් එක සැකසීම
-            const text = `*New Inquiry from CeylonAgro*%0A%0A*Name:* ${name}%0A*City:* ${city}%0A*Product:* ${product}%0A*Message:* ${msg}`;
+            const text = `*CeylonAgro Inquiry*%0A%0A*Name:* ${name}%0A*City:* ${city}%0A*Interested In:* ${product}%0A*Message:* ${msg}`;
             
-            // Count එක වැඩි කිරීම
             count++;
             localStorage.setItem('inquiryCount', count);
             countDisplay.innerText = count + "+";
 
-            // WhatsApp එකට යැවීම
             window.open(`https://wa.me/${myNumber}?text=${text}`, '_blank');
             modal.style.display = "none";
             this.reset();
