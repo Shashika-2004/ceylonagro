@@ -60,11 +60,11 @@
         .stat-box { background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; width: 180px; border-bottom: 4px solid var(--accent-green); }
         .stat-box h3 { font-size: 1.8rem; color: var(--accent-green); font-family: 'Arial Black', sans-serif; }
 
-        /* Section */
+        /* Sections */
         .section { padding: 80px 5% 40px; text-align: center; }
         .section h2 { font-size: 16px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 40px; color: var(--accent-green); }
 
-        /* Grid */
+        /* Product Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
         .product-card { text-align: left; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .product-card img { width: 100%; height: 300px; object-fit: cover; }
@@ -75,11 +75,20 @@
         .feedback-container { max-width: 600px; margin: 0 auto; overflow: hidden; position: relative; min-height: 220px; }
         .feedback-slider { display: flex; transition: transform 0.5s ease-in-out; width: 100%; }
         .feedback-slide { min-width: 100%; box-sizing: border-box; padding: 10px; }
-        .feedback-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; height: 100%; }
-        
+        .feedback-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee; }
         .feedback-form-container { max-width: 500px; margin: 40px auto; padding: 25px; background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; text-align: left; }
         .feedback-form-container input, .feedback-form-container select, .feedback-form-container textarea { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         .btn-post { width: 100%; padding: 15px; background: var(--accent-green); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+
+        /* Split Screen Map Section */
+        .contact-split { display: flex; flex-wrap: wrap; background: #fff; margin-top: 50px; min-height: 450px; }
+        .contact-info-side { flex: 1; min-width: 300px; padding: 60px 5%; background: var(--accent-green); color: white; display: flex; flex-direction: column; justify-content: center; }
+        .map-side { flex: 1; min-width: 300px; position: relative; min-height: 400px; }
+        .map-side iframe { width: 100%; height: 100%; border: none; filter: grayscale(0.2) contrast(1.1); }
+        
+        .contact-details { margin-top: 30px; }
+        .contact-item { margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+        .contact-item span { font-size: 14px; opacity: 0.9; }
 
         /* Modal */
         .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
@@ -90,6 +99,8 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .stat-box { width: 45%; }
+            .contact-split { flex-direction: column; }
+            .map-side { height: 350px; }
         }
     </style>
 </head>
@@ -149,7 +160,6 @@
     <div class="feedback-container">
         <div id="feedbackSlider" class="feedback-slider"></div>
     </div>
-
     <div class="feedback-form-container">
         <h3>Share Your Experience</h3>
         <form id="customerFeedbackForm">
@@ -165,10 +175,33 @@
     </div>
 </section>
 
-<section id="about" class="section">
-    <h2>Our Story</h2>
-    <p style="max-width: 700px; margin: 0 auto; color: var(--muted-text);">From Dematagolla, Wellawa, Kurunegala, CeylonAgro brings you the finest quality plant seedlings and natural products for your sustainable agricultural needs.</p>
+<section id="contact" class="contact-split">
+    <div class="contact-info-side">
+        <h2 style="color: #fff; text-align: left; font-size: 24px; margin-bottom: 10px;">Visit Our Nursery</h2>
+        <p style="opacity: 0.8; font-size: 14px;">නිරෝගී සහ ගුණාත්මක පැළ ලබාගැනීමට අපගේ නර්සරි එකට අදම පැමිණෙන්න.</p>
+        
+        <div class="contact-details">
+            <div class="contact-item">
+                <div style="font-size: 20px;">📍</div>
+                <span>Dematagolla, Wellawa, Kurunegala</span>
+            </div>
+            <div class="contact-item">
+                <div style="font-size: 20px;">📞</div>
+                <span>+94 72 778 2588</span>
+            </div>
+            <div style="margin-top: 30px;">
+                <a href="https://www.google.com/maps?q=7.555389,80.388361" target="_blank" style="color: white; border: 1px solid white; padding: 10px 20px; text-decoration: none; font-size: 12px; border-radius: 5px; font-weight: bold;">Get Directions</a>
+            </div>
+        </div>
+    </div>
+    <div class="map-side">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3954.9184517173114!2d80.38578611100589!3d7.555388892429215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMzMnMTkuNCJOIDgwwrAyMycxOC4xIkU!5e0!3m2!1sen!2slk!4v1712800000000!5m2!1sen!2slk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </section>
+
+<footer style="padding: 40px; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee;">
+    <p>© 2026 CEYLONAGRO. All Rights Reserved.</p>
+</footer>
 
 <div id="inquiryModal" class="modal">
     <div class="modal-content">
@@ -192,10 +225,6 @@
         </form>
     </div>
 </div>
-
-<footer id="contact" style="padding: 40px; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee;">
-    <p>CEYLONAGRO | DEMATAGOLLA, WELLAWA, KURUNEGALA, SRI LANKA</p>
-</footer>
 
 <script>
     const modal = document.getElementById("inquiryModal");
@@ -221,7 +250,6 @@
         const prod = document.getElementById("userProduct").value;
         const msg = document.getElementById("userMessage").value;
         const text = `*Inquiry from CeylonAgro Website*%0A%0A*Name:* ${name}%0A*City:* ${city}%0A*Product:* ${prod}%0A*Message:* ${msg}`;
-        
         count++;
         localStorage.setItem('inquiryCount', count);
         countDisplay.innerText = count + "+";
@@ -230,7 +258,7 @@
         this.reset();
     }
 
-    // Feedback Rendering Logic
+    // Feedback Rendering
     function renderFeedbacks() {
         let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews'));
         if (!reviews || reviews.length === 0) {
@@ -240,25 +268,18 @@
                 { name: "Nimal Silva", rating: "5", comment: "කුරුණෑගල තියෙන හොඳම පැළ නර්සරි එකක්." }
             ];
         }
-
         fbSlider.innerHTML = '';
         reviews.forEach(rev => {
             const stars = "★".repeat(parseInt(rev.rating)) + "☆".repeat(5 - parseInt(rev.rating));
             const slideDiv = document.createElement('div');
             slideDiv.className = 'feedback-slide';
-            slideDiv.innerHTML = `
-                <div class="feedback-card">
-                    <div style="color:#ffcc00; font-size:1.2rem; margin-bottom:10px;">${stars}</div>
-                    <p style="font-size: 14px; font-style: italic; color: #555; margin-bottom: 10px;">"${rev.comment}"</p>
-                    <div style="font-weight: bold; font-size: 12px; color: #1a4332;">- ${rev.name}</div>
-                </div>`;
+            slideDiv.innerHTML = `<div class="feedback-card"><div style="color:#ffcc00; font-size:1.2rem; margin-bottom:10px;">${stars}</div><p style="font-size: 14px; font-style: italic; color: #555; margin-bottom: 10px;">"${rev.comment}"</p><div style="font-weight: bold; font-size: 12px; color: #1a4332;">- ${rev.name}</div></div>`;
             fbSlider.appendChild(slideDiv);
         });
         currentIndex = 0;
         fbSlider.style.transform = `translateX(0%)`;
     }
 
-    // Auto Slide
     function startAutoSlide() {
         setInterval(() => {
             const slides = document.querySelectorAll('.feedback-slide');
@@ -272,18 +293,12 @@
     document.getElementById('customerFeedbackForm').onsubmit = function(e) {
         e.preventDefault();
         let reviews = JSON.parse(localStorage.getItem('ceylonAgroReviews')) || [];
-        reviews.unshift({
-            name: document.getElementById('fbName').value,
-            rating: document.getElementById('fbRating').value,
-            comment: document.getElementById('fbComment').value
-        });
+        reviews.unshift({ name: document.getElementById('fbName').value, rating: document.getElementById('fbRating').value, comment: document.getElementById('fbComment').value });
         localStorage.setItem('ceylonAgroReviews', JSON.stringify(reviews));
         this.reset();
         renderFeedbacks();
-        alert("ස්තුතියි! ඔබේ අදහස ඇතුළත් කළා.");
     };
 
-    // Initialize on Load
     window.onload = function() {
         renderFeedbacks();
         startAutoSlide();
